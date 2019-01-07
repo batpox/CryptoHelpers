@@ -31,10 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCertificates = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupCreateCertificateFile = new System.Windows.Forms.GroupBox();
+            this.listFileFormats = new System.Windows.Forms.ListView();
+            this.buttonCreateCertificateFile = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textCertificate = new System.Windows.Forms.TextBox();
             this.buttonLoadExe = new System.Windows.Forms.Button();
@@ -42,11 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabLogs = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonCreateCertificateFile = new System.Windows.Forms.Button();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
-            this.listFileFormats = new System.Windows.Forms.ListView();
-            this.groupCreateCertificateFile = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabCertificates.SuspendLayout();
@@ -73,6 +73,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(108, 26);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -118,6 +125,60 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1209, 750);
             this.panel1.TabIndex = 1;
+            // 
+            // groupCreateCertificateFile
+            // 
+            this.groupCreateCertificateFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupCreateCertificateFile.Controls.Add(this.listFileFormats);
+            this.groupCreateCertificateFile.Controls.Add(this.buttonCreateCertificateFile);
+            this.groupCreateCertificateFile.Controls.Add(this.label3);
+            this.groupCreateCertificateFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupCreateCertificateFile.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupCreateCertificateFile.Location = new System.Drawing.Point(9, 79);
+            this.groupCreateCertificateFile.Name = "groupCreateCertificateFile";
+            this.groupCreateCertificateFile.Size = new System.Drawing.Size(1176, 207);
+            this.groupCreateCertificateFile.TabIndex = 9;
+            this.groupCreateCertificateFile.TabStop = false;
+            this.groupCreateCertificateFile.Text = "Create Certificate File";
+            // 
+            // listFileFormats
+            // 
+            this.listFileFormats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listFileFormats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listFileFormats.FullRowSelect = true;
+            this.listFileFormats.GridLines = true;
+            this.listFileFormats.Location = new System.Drawing.Point(157, 26);
+            this.listFileFormats.Name = "listFileFormats";
+            this.listFileFormats.Size = new System.Drawing.Size(785, 175);
+            this.listFileFormats.TabIndex = 8;
+            this.listFileFormats.UseCompatibleStateImageBehavior = false;
+            this.listFileFormats.View = System.Windows.Forms.View.Details;
+            this.listFileFormats.SelectedIndexChanged += new System.EventHandler(this.listFileFormats_SelectedIndexChanged);
+            // 
+            // buttonCreateCertificateFile
+            // 
+            this.buttonCreateCertificateFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateCertificateFile.Location = new System.Drawing.Point(962, 26);
+            this.buttonCreateCertificateFile.Name = "buttonCreateCertificateFile";
+            this.buttonCreateCertificateFile.Size = new System.Drawing.Size(208, 55);
+            this.buttonCreateCertificateFile.TabIndex = 6;
+            this.buttonCreateCertificateFile.Text = "Create Certificate File...";
+            this.toolTip1.SetToolTip(this.buttonCreateCertificateFile, "Select the format (to the left), then push to create the file, prompting for the " +
+        "location.");
+            this.buttonCreateCertificateFile.UseVisualStyleBackColor = true;
+            this.buttonCreateCertificateFile.Click += new System.EventHandler(this.buttonCreateCertificateFile_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Select Format";
             // 
             // label2
             // 
@@ -181,70 +242,10 @@
             this.tabLogs.Location = new System.Drawing.Point(4, 25);
             this.tabLogs.Name = "tabLogs";
             this.tabLogs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogs.Size = new System.Drawing.Size(1166, 608);
+            this.tabLogs.Size = new System.Drawing.Size(1215, 756);
             this.tabLogs.TabIndex = 1;
             this.tabLogs.Text = "Logs";
             this.tabLogs.UseVisualStyleBackColor = true;
-            // 
-            // buttonCreateCertificateFile
-            // 
-            this.buttonCreateCertificateFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateCertificateFile.Location = new System.Drawing.Point(962, 26);
-            this.buttonCreateCertificateFile.Name = "buttonCreateCertificateFile";
-            this.buttonCreateCertificateFile.Size = new System.Drawing.Size(208, 55);
-            this.buttonCreateCertificateFile.TabIndex = 6;
-            this.buttonCreateCertificateFile.Text = "Create Certificate File...";
-            this.toolTip1.SetToolTip(this.buttonCreateCertificateFile, "Create the file, prompting for the location");
-            this.buttonCreateCertificateFile.UseVisualStyleBackColor = true;
-            this.buttonCreateCertificateFile.Click += new System.EventHandler(this.buttonCreateCertificateFile_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Select Format";
-            // 
-            // listFileFormats
-            // 
-            this.listFileFormats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listFileFormats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listFileFormats.FullRowSelect = true;
-            this.listFileFormats.GridLines = true;
-            this.listFileFormats.Location = new System.Drawing.Point(157, 26);
-            this.listFileFormats.Name = "listFileFormats";
-            this.listFileFormats.Size = new System.Drawing.Size(785, 175);
-            this.listFileFormats.TabIndex = 8;
-            this.listFileFormats.UseCompatibleStateImageBehavior = false;
-            this.listFileFormats.View = System.Windows.Forms.View.Details;
-            this.listFileFormats.SelectedIndexChanged += new System.EventHandler(this.listFileFormats_SelectedIndexChanged);
-            // 
-            // groupCreateCertificateFile
-            // 
-            this.groupCreateCertificateFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupCreateCertificateFile.Controls.Add(this.listFileFormats);
-            this.groupCreateCertificateFile.Controls.Add(this.buttonCreateCertificateFile);
-            this.groupCreateCertificateFile.Controls.Add(this.label3);
-            this.groupCreateCertificateFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupCreateCertificateFile.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupCreateCertificateFile.Location = new System.Drawing.Point(9, 79);
-            this.groupCreateCertificateFile.Name = "groupCreateCertificateFile";
-            this.groupCreateCertificateFile.Size = new System.Drawing.Size(1176, 207);
-            this.groupCreateCertificateFile.TabIndex = 9;
-            this.groupCreateCertificateFile.TabStop = false;
-            this.groupCreateCertificateFile.Text = "Create Certificate File";
             // 
             // FormMain
             // 
